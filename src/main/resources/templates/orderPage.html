@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+
+<title>PizzaOrderPage</title>
+</head>
+<body>
+
+<h3>Today's featured pizza ingredients and quantities at GAN are - </h3> 
+
+<p th:text="${ingardientsMap}" /> 
+<br>
+<br>
+
+<h4>Build you pizza !</h4>
+<br>
+
+<form action="#" th:action="@{/placePizzaOrder}" th:object="${pizzaOrder}" method="post">
+
+	<label for="orderId">Order Name</label>
+    <input type="text" th:field="*{orderId}" id="orderId" placeholder="Name your order" required="required"> 
+    <br>
+	<br>
+	<label for="cheese">Cheese</label>
+    <input type="number" th:field="*{cheese}" id="cheese" placeholder="0"> 
+    <br>
+	<br>
+    <label for="chicken">Chicken</label>
+    <input type="number" th:field="*{chicken}" id="chicken" placeholder="0">
+    <br>
+	<br>
+    <label for="marinara">Marinara</label>
+    <input type="number" th:field="*{marinara}" id="marinara" placeholder="0">
+    <br>
+	<br>
+    <input type="submit" value="Place Pizza Order"> 
+    <br>
+    <br>    
+    
+</form>
+
+</body>
+</html>

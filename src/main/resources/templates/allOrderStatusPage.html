@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>All Order Status</title>
+</head>
+<body>
+
+ <form action="#" th:action="@{/allOrderStatus}" method="get">
+ 
+ <table>
+  <tr>
+    <th>Order Name</th>
+    <th>Order Status</th>
+  </tr>
+  
+  <tr th:each="instance : ${allOrders}">
+    <td><p th:text="${instance.key}" /></td>
+    <td><p th:text="${instance.value}" /></td>
+  </tr>
+</table>
+ </form>
+ 
+ <br>
+ <br>
+ <a th:href="@{http://localhost:8080}">Home Page</a>
+ 
+</body>
+</html>

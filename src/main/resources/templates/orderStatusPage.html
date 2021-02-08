@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Order Status</title>
+</head>
+<body>
+<form action="#" th:action="@{/orderStatus}" method="get">
+ 
+ <table>
+  <tr>
+    <th>Order Name</th>
+    <th>Order Status</th>
+  </tr>
+  <tr>
+    <td><p th:text="${orderName}" /></td>
+    <td><p th:text="${orderStatus}" /></td>
+  </tr>
+</table>
+
+ </form>
+ <br>
+  <br>
+  <a href="orderHome"><b>Click here to place new order</b></a>
+ <br>
+ <br>
+ <a th:href="@{http://localhost:8080}"><b>Home Page</b></a>
+ 
+</body>
+</html>

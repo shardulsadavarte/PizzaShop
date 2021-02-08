@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>GAN's pizza</title>
+</head>
+<body>
+<h1>!! Welcome to GAN's pizza !!</h1>
+<br>
+  <br>
+  <br>
+  <a href="orderHome"><b>Click here to place a new pizza order</b></a>
+  <br>
+  <br>
+  <br>
+  
+ <h4>Check status of your existing order</h4>
+ <form th:action="@{/orderStatus}">
+	<input type="text" th:name="orderId"/> 
+<input type="submit"/> 
+</form>
+
+<br>
+  <br>
+  <br>
+  
+ <a href="allOrderStatus"><b>Check status of all existing order</b></a>
+
+</body>
+</html>
