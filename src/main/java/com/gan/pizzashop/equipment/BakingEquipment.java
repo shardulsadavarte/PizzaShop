@@ -4,6 +4,6 @@ import com.gan.pizzashop.data.Order;
 
 public interface BakingEquipment {
 	
-	public void bake(Order order);
+	public void bake(Order order) throws Exception;
 
 }

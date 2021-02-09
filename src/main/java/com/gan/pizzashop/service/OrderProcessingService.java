@@ -47,12 +47,16 @@ public class OrderProcessingService implements Runnable {
 				Oven oven = startedOvens.poll();
 	
 				if (null == oven) {
-					orderStatus.put(order.getOrderId(), PizzashopConstants.WAITING_FOR_OVEN);
+					orderStatus.put(order.getOrderId(), PizzashopConstants.ORDER_WAITING);
 					
 				} else {				
 						new Thread( new Runnable() {
 							public void run() {							
-								bakingService.bake(order, oven);
+								try {
+									bakingService.bake(order, oven);
+								} catch (Exception e) {
+									orderStatus.put(order.getOrderId(),PizzashopConstants.ORDER_INCOMPETE);
+								}
 							}						
 						}).start();					
 					

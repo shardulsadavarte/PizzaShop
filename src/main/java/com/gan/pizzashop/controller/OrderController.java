@@ -54,7 +54,11 @@ public class OrderController {
 		Order uniqueOrder = orderManagerService.createUniqueOrder(pizzaOrder);
 		
 		if(sufficientInventory) {
-			orderManagerService.placeOrder(uniqueOrder);
+			try {
+				orderManagerService.placeOrder(uniqueOrder);
+			} catch (Exception e) {
+				orderStatus.put(uniqueOrder.getOrderId(),PizzashopConstants.ORDER_REJECTED);
+			}
 			orderStatus.put(uniqueOrder.getOrderId(), PizzashopConstants.ORDER_PLACED);
 		} else {
 			orderStatus.put(uniqueOrder.getOrderId(), PizzashopConstants.ORDER_NOT_PLACED);

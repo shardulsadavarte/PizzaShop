@@ -24,7 +24,7 @@ public class BakingService {
 	@Qualifier("orderStatus")
 	HashMap<String, String> orderStatus; 
 	
-	public void bake(Order order, Oven oven) {
+	public void bake(Order order, Oven oven) throws Exception {
 		
 		orderStatus.put(order.getOrderId(), PizzashopConstants.ORDER_BAKING);
 		oven.bake(order);

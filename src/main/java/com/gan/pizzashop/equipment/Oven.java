@@ -18,7 +18,7 @@ public class Oven implements BakingEquipment{
 	}
 	
 	@Override
-	public void bake(Order order) {		
+	public void bake(Order order) throws Exception {		
 				
 		try {
 			//Baking process
@@ -27,6 +27,7 @@ public class Oven implements BakingEquipment{
 			return;
 		} catch (Exception e) {
 			logger.error(PizzashopConstants.ERROR_BROKEN_OVEN, e);
+			throw new Exception();
 		}		
 		
 	}	
