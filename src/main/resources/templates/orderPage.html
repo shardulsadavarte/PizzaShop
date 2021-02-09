@@ -2,43 +2,62 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-
 <title>PizzaOrderPage</title>
+<style>
+table, th, td {
+  border: 1px solid black;
+}
+th, td {
+  padding: 10px;
+}
+tr { line-height: 2px; }
+</style>
 </head>
 <body>
 
-<h3>Today's featured pizza ingredients and quantities at GAN are - </h3> 
+<h3>** Today's featured pizza toppings and available quantities ** </h3> 
 
-<p th:text="${ingardientsMap}" /> 
-<br>
+<table>
+  <tr>
+    <th>Topping</th>
+    <th>Quantity</th>
+  </tr>  
+  <tr th:each="instance : ${ingardientsMap}">
+    <td><p th:text="${instance.key}" /></td>
+    <td align="center"><p th:text="${instance.value}" /></td>
+  </tr>
+ 
+</table>
+
 <br>
 
 <h4>Build you pizza !</h4>
 <br>
-
 <form action="#" th:action="@{/placePizzaOrder}" th:object="${pizzaOrder}" method="post">
 
-	<label for="orderId">Order Name</label>
+	<label for="orderId">Order Name:</label>
     <input type="text" th:field="*{orderId}" id="orderId" placeholder="Name your order" required="required"> 
     <br>
 	<br>
-	<label for="cheese">Cheese</label>
-    <input type="number" th:field="*{cheese}" id="cheese" placeholder="0"> 
+	<label for="cheese">Cheese:</label>
+    <input type="number" th:field="*{cheese}" id="cheese" placeholder="0" required="required"> 
     <br>
 	<br>
-    <label for="chicken">Chicken</label>
-    <input type="number" th:field="*{chicken}" id="chicken" placeholder="0">
+    <label for="chicken">Chicken:</label>
+    <input type="number" th:field="*{chicken}" id="chicken" placeholder="0" required="required">
     <br>
 	<br>
-    <label for="marinara">Marinara</label>
-    <input type="number" th:field="*{marinara}" id="marinara" placeholder="0">
+    <label for="jalapeno">Jalapeno:</label>
+    <input type="number" th:field="*{jalapeno}" id="jalapeno" placeholder="0" required="required">
     <br>
 	<br>
     <input type="submit" value="Place Pizza Order"> 
     <br>
-    <br>    
+    <br>        
+   	<br>
+ 	<a th:href="@{http://localhost:8080}">Home Page</a>
     
-</form>
+</form> 
 
 </body>
 </html>

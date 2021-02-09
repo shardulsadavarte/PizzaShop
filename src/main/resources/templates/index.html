@@ -15,9 +15,9 @@
   <br>
   
  <h4>Check status of your existing order</h4>
- <form th:action="@{/orderStatus}">
-	<input type="text" th:name="orderId"/> 
-<input type="submit"/> 
+ <form th:action="@{/orderStatus/}">
+	<input type="text" th:name="orderId" required="required"/> 
+<input type="submit" value="Check Status"/> 
 </form>
 
 <br>

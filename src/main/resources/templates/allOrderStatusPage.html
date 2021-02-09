@@ -3,20 +3,33 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>All Order Status</title>
+<style>
+table, th, td {
+  border: 2px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 10px;
+}
+tr { line-height: 2px; }
+</style>
 </head>
+<script type="text/javascript">
+    setInterval('window.location.reload()', 5000);
+</script>
 <body>
 
  <form action="#" th:action="@{/allOrderStatus}" method="get">
  
  <table>
   <tr>
-    <th>Order Name</th>
+    <th>Order Id</th>
     <th>Order Status</th>
   </tr>
-  
+    
   <tr th:each="instance : ${allOrders}">
     <td><p th:text="${instance.key}" /></td>
-    <td><p th:text="${instance.value}" /></td>
+    <td align="center"><p th:text="${instance.value}" /></td>
   </tr>
 </table>
  </form>

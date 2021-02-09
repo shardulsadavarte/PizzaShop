@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.gan.pizzashop.data.Order;
 import com.gan.pizzashop.equipment.Oven;
+import com.gan.pizzashop.util.PizzashopConstants;
 
 @Service
 @Scope("prototype")
@@ -25,9 +26,9 @@ public class BakingService {
 	
 	public void bake(Order order, Oven oven) {
 		
-		orderStatus.put(order.getOrderId(), "Your pizza is baking inside the oven !");
+		orderStatus.put(order.getOrderId(), PizzashopConstants.ORDER_BAKING);
 		oven.bake(order);
-		orderStatus.put(order.getOrderId(), "Your pizza is ready !");
+		orderStatus.put(order.getOrderId(), PizzashopConstants.ORDER_READY);
 		startedOvens.add(oven);
 	}
 

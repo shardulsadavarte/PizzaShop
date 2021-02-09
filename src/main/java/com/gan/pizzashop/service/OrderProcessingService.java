@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.gan.pizzashop.data.Order;
 import com.gan.pizzashop.equipment.Oven;
+import com.gan.pizzashop.util.PizzashopConstants;
 
 @Service
 public class OrderProcessingService implements Runnable {
@@ -46,7 +47,7 @@ public class OrderProcessingService implements Runnable {
 				Oven oven = startedOvens.poll();
 	
 				if (null == oven) {
-					orderStatus.put(order.getOrderId(), "Your pizza is waiting for oven !");
+					orderStatus.put(order.getOrderId(), PizzashopConstants.WAITING_FOR_OVEN);
 					
 				} else {				
 						new Thread( new Runnable() {
